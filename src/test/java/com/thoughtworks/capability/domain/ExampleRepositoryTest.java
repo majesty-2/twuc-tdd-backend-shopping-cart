@@ -16,10 +16,10 @@ class ExampleRepositoryTest extends WebApplicationTest {
     private ExampleRepository exampleRepository;
 
     @Test
-    @Sql("/sql/repository/insert_a_example.sql")
+    @Sql("/sql/insert_a_example.sql")
     public void shouldReturnExampleWhenExampleIsExist() {
         //given
-        Long exampleId = 1000L;
+        Long exampleId = 100L;
         //when
         Optional<Example> actual = exampleRepository.findById(exampleId);
 

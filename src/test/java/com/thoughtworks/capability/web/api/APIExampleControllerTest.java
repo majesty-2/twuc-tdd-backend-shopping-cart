@@ -20,7 +20,7 @@ class APIExampleControllerTest extends WebApplicationTest {
     private MockMvc mvc;
 
     @Test
-    @Sql("/sql/api/insert_a_example.sql")
+    @Sql("/sql/insert_a_example.sql")
     public void shouldGetExampleByIdSuccessWhenExampleIsExist() throws Exception {
         mvc.perform(MockMvcRequestBuilders
             .get("/examples/100")
