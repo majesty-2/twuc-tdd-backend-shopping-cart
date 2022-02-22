@@ -1,9 +1,9 @@
-package com.thoughtworks.capability.infrastructure;
+package com.thoughtworks.capability.repository;
 
 import com.thoughtworks.capability.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface JpaExampleRepository extends JpaRepository<Example, Long> {
+public interface ExampleRepository extends JpaRepository<Example, Long> {
 }

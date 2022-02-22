@@ -2,7 +2,7 @@ package com.thoughtworks.capability.service;
 
 import com.thoughtworks.capability.common.exception.ExampleNotFoundException;
 import com.thoughtworks.capability.domain.Example;
-import com.thoughtworks.capability.domain.ExampleRepository;
+import com.thoughtworks.capability.repository.ExampleRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -39,9 +39,7 @@ class ExampleServiceTest {
         Long exampleId = 1L;
         when(exampleRepository.findById(exampleId)).thenReturn(Optional.empty());
 
-        assertThrows(ExampleNotFoundException.class, () -> {
-            exampleService.findExampleById(exampleId);
-        });
+        assertThrows(ExampleNotFoundException.class, () -> exampleService.findExampleById(exampleId));
     }
 
     @Test
