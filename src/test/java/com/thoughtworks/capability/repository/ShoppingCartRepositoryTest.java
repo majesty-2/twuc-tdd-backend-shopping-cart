@@ -33,8 +33,8 @@ public class ShoppingCartRepositoryTest extends WebApplicationTest {
         //then
         assertEquals(2, products.size());
         assertEquals(1L, products.get(0).getId());
-        assertEquals(BigDecimal.valueOf(20), products.get(0).getPrice());
-        assertEquals(2L, products.get(0).getId());
-        assertEquals(BigDecimal.valueOf(10), products.get(1).getPrice());
+        assertEquals(BigDecimal.valueOf(20).compareTo(products.get(0).getPrice()), 0);
+        assertEquals(2L, products.get(1).getId());
+        assertEquals(BigDecimal.valueOf(10).compareTo(products.get(1).getPrice()),0);
     }
 }
