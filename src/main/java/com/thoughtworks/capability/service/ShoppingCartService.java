@@ -16,12 +16,11 @@ public class ShoppingCartService {
 
     public ShoppingCartResponse findShoppingCart() {
         List<Product> products = productRepository.findAll();
-        BigDecimal totalAmount = BigDecimal.ZERO;
-        for (Product product : products) {
-            totalAmount = totalAmount.add(
-                product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())
-                ));
-        }
+        BigDecimal totalAmount = products.stream()
+            .map(Product::getPriceTotalAmount)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+
         return new ShoppingCartResponse(products, totalAmount);
     }
+
 }
