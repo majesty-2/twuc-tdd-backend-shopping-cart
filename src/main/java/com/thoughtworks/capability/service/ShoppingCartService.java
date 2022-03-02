@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.service;
 
+import com.thoughtworks.capability.domain.Product;
 import com.thoughtworks.capability.repository.ProductRepository;
 import com.thoughtworks.capability.web.dto.ShoppingCartResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,13 @@ public class ShoppingCartService {
     private final ProductRepository productRepository;
 
     public ShoppingCartResponse findShoppingCart() {
-        List products = productRepository.findAll();
-        return new ShoppingCartResponse(products, BigDecimal.ZERO);
+        List<Product> products = productRepository.findAll();
+        BigDecimal totalAmount = BigDecimal.ZERO;
+        for (Product product : products) {
+            totalAmount = totalAmount.add(
+                product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())
+                ));
+        }
+        return new ShoppingCartResponse(products, totalAmount);
     }
 }
