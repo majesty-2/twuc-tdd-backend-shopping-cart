@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.web;
 
 import com.thoughtworks.capability.WebApplicationTest;
+import com.thoughtworks.capability.domain.Product;
 import com.thoughtworks.capability.service.ShoppingCartService;
 import com.thoughtworks.capability.web.dto.ShoppingCartResponse;
 import org.assertj.core.util.Lists;
@@ -32,6 +33,28 @@ public class ShoppingCartControllerTest extends WebApplicationTest {
             //then
         .andExpect(jsonPath("$.products").isArray())
         .andExpect(jsonPath("$.totalAmount").value(BigDecimal.ZERO));
+
+    }
+
+    @Test
+    public void shouldReturnShoppingCartWhenHasProducts() throws Exception {
+        //given
+        ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse(Lists.list(
+            new Product(1L,"p1",BigDecimal.valueOf(20),1),
+            new Product(2L,"p2",BigDecimal.valueOf(10),2)
+        ), BigDecimal.valueOf(40));
+
+        when(shoppingCartService.findShoppingCart()).thenReturn(shoppingCartResponse);
+
+        //when
+        mvc.perform(MockMvcRequestBuilders.get("/shoppingCart"))
+            //then
+        .andExpect(jsonPath("$.products").isArray())
+        .andExpect(jsonPath("$.products.[0].id").value(1L))
+        .andExpect(jsonPath("$.products.[0].price").value(BigDecimal.valueOf(20)))
+        .andExpect(jsonPath("$.products.[1].id").value(2L))
+        .andExpect(jsonPath("$.products.[1].price").value(BigDecimal.valueOf(10)))
+        .andExpect(jsonPath("$.totalAmount").value(BigDecimal.valueOf(40)));
 
     }
 }

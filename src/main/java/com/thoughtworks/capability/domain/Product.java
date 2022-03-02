@@ -20,4 +20,8 @@ public class Product {
     private String title;
     private BigDecimal price;
     private Integer quantity;
+
+    public Product(long id, String title, BigDecimal price, int quantity) {
+
+    }
 }
