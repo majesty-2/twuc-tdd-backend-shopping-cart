@@ -1,6 +1,8 @@
 package com.thoughtworks.capability.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,8 @@ import java.math.BigDecimal;
 @Data
 @Table(name = "product")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -20,8 +24,4 @@ public class Product {
     private String title;
     private BigDecimal price;
     private Integer quantity;
-
-    public Product(long id, String title, BigDecimal price, int quantity) {
-
-    }
 }
