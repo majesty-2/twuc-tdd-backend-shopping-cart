@@ -4,7 +4,19 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class ShoppingCartResponse {
-    public <T> ShoppingCartResponse(List<T> emptyList, BigDecimal zero) {
+    private final List products;
+    private final BigDecimal totalAmount;
 
+    public ShoppingCartResponse(List products, BigDecimal totalAmount) {
+        this.products = products;
+        this.totalAmount = totalAmount;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public List getProducts() {
+        return products;
     }
 }
