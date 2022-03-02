@@ -12,8 +12,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ShoppingCartServiceTest {
-    private ProductRepository productRepository = mock(ProductRepository.class);
-    private ShoppingCartService shoppingCartService = new ShoppingCartService(productRepository);
+    private final ProductRepository productRepository = mock(ProductRepository.class);
+    private final ShoppingCartService shoppingCartService = new ShoppingCartService(productRepository);
 
     @Test
     public void shouldReturnEmptyShoppingCartWhenHasNotProducts() {

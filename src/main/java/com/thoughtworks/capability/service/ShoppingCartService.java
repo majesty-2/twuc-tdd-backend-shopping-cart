@@ -2,21 +2,16 @@ package com.thoughtworks.capability.service;
 
 import com.thoughtworks.capability.repository.ProductRepository;
 import com.thoughtworks.capability.web.dto.ShoppingCartResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ShoppingCartService {
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    public ShoppingCartService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private final ProductRepository productRepository;
 
     public ShoppingCartResponse findShoppingCart() {
         List products = productRepository.findAll();
