@@ -2,7 +2,7 @@ package com.thoughtworks.capability.service;
 
 import com.thoughtworks.capability.common.exception.ExampleNotFoundException;
 import com.thoughtworks.capability.domain.Example;
-import com.thoughtworks.capability.domain.ExampleRepository;
+import com.thoughtworks.capability.repository.ExampleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

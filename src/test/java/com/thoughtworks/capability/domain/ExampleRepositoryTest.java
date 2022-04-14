@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.domain;
 
 import com.thoughtworks.capability.WebApplicationTest;
+import com.thoughtworks.capability.repository.ExampleRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
