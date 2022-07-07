@@ -1,16 +1,14 @@
-package com.thoughtworks.capability.domain;
+package com.thoughtworks.capability.repository;
 
 import com.thoughtworks.capability.WebApplicationTest;
-import com.thoughtworks.capability.repository.ExampleRepository;
+import com.thoughtworks.capability.domain.Example;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ExampleRepositoryTest extends WebApplicationTest {
     @Autowired
