@@ -18,7 +18,11 @@ public class ShoppingCartService {
 
     public ShoppingCartResponse getShoppingCart() {
         List<Product> products = productRepository.findAll();
+        BigDecimal totalPrice = products.stream()
+                .map(Product::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        return new ShoppingCartResponse(products, BigDecimal.ZERO);
+        return new ShoppingCartResponse(products, totalPrice);
     }
+
 }
