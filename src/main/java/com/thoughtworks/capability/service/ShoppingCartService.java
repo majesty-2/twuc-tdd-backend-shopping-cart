@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.service;
 
+import com.thoughtworks.capability.domain.Product;
 import com.thoughtworks.capability.repository.ProductRepository;
 import com.thoughtworks.capability.web.dto.ShoppingCartResponse;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class ShoppingCartService {
     }
 
     public ShoppingCartResponse getShoppingCart() {
-        List<Object> products = productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
         return new ShoppingCartResponse(products, BigDecimal.ZERO);
     }
