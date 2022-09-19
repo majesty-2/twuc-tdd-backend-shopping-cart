@@ -1,10 +1,12 @@
 package com.thoughtworks.capability.service;
 
+import com.thoughtworks.capability.domain.Product;
 import com.thoughtworks.capability.repository.ProductRepository;
 import com.thoughtworks.capability.web.dto.ShoppingCartResponse;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class ShoppingCartService {
@@ -15,8 +17,14 @@ public class ShoppingCartService {
     }
 
     public ShoppingCartResponse getShoppingCart() {
-        return new ShoppingCartResponse(productRepository.findAll(), BigDecimal.ZERO);
+        List<Product> products = productRepository.findAll();
+        BigDecimal totalPrice = products.stream()
+                .map(Product::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return new ShoppingCartResponse(products, totalPrice);
     }
+
 }
 
 
