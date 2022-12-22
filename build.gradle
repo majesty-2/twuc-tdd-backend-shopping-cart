@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.thoughtworks.capability'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
     compileOnly {
