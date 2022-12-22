@@ -29,7 +29,7 @@ public class ShoppingCartControllerTest extends WebApplicationTest {
         when(shoppingCartService.findShoppingCart()).thenReturn(shoppingCartResponse);
 
         //when
-        mvc.perform(MockMvcRequestBuilders.get("/shoppingCart"))
+        mvc.perform(MockMvcRequestBuilders.get("/shopping-cart"))
             //then
         .andExpect(jsonPath("$.products").isArray())
         .andExpect(jsonPath("$.totalAmount").value(BigDecimal.ZERO));
@@ -47,7 +47,7 @@ public class ShoppingCartControllerTest extends WebApplicationTest {
         when(shoppingCartService.findShoppingCart()).thenReturn(shoppingCartResponse);
 
         //when
-        mvc.perform(MockMvcRequestBuilders.get("/shoppingCart"))
+        mvc.perform(MockMvcRequestBuilders.get("/shopping-cart"))
             //then
         .andExpect(jsonPath("$.products").isArray())
         .andExpect(jsonPath("$.products.[0].id").value(1L))

@@ -5,7 +5,9 @@
 - [ ] API 测试：fake DB
 
 ```json
-// GET /shoppingCart
+// GET /shopping-cart
+
+// example
 {
   "response": {
     "products": [
