@@ -38,3 +38,6 @@ out/
 
 ### asdf-vm ###
 .tool-versions
+
+### jenv ###
+.java-version
