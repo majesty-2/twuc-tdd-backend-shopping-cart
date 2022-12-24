@@ -27,4 +27,8 @@ public class Product {
     private BigDecimal price;
 
     private Integer quantity;
+
+    public BigDecimal getTotalAmount() {
+        return price.multiply(BigDecimal.valueOf(quantity));
+    }
 }
