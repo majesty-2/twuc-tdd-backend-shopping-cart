@@ -9,11 +9,19 @@ import static org.mockito.Mockito.when;
 import com.thoughtworks.capability.repository.ProductRepository;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class ShoppingCartServiceTest {
 
-    private final ProductRepository productRepository = mock(ProductRepository.class);
-    private final ShoppingCartService shoppingCartService = new ShoppingCartService(productRepository);
+    @Mock
+    private ProductRepository productRepository;
+
+    @InjectMocks
+    private ShoppingCartService shoppingCartService;
 
     @Test
     void should_return_empty_shopping_cart() {
