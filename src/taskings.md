@@ -9,12 +9,14 @@
 {
   "response": {
     "products": [
-      "id": "number",
-      "title":"string",
-      "price":"decimal", 
-      "quantity":"number"
+      {
+        "id": "number",
+        "name": "string",
+        "price": "decimal",
+        "quantity": "number"
+      }
     ],
-    "totalPrice": "decimal"
+    "totalAmount": "decimal"
   }
 }
 
@@ -23,7 +25,7 @@
 {
   "response": {
    "products":[], 
-   "totalPrice": 0
+   "totalAmount": 0
   }
 }
 
@@ -42,17 +44,17 @@
     "products": [
       {
         "id":1,
-        "title": "cola",
+        "name": "cola",
         "price": 1,
         "quantity": 1
       },{
         "id":2,
-        "title": "candy",
+        "name": "candy",
         "price": 2,
         "quantity": 2
       }
     ],
-    "totalPrice": 5
+    "totalAmount": 5
   }
 }
 ```
